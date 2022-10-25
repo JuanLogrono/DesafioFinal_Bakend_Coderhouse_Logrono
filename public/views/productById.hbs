@@ -1,0 +1,22 @@
+
+{{#if hayProductos}}
+  <ul>
+<form action="/api/carrito" method="post">
+      <li>
+        <img src={{productos.foto}}".jpg" alt={{productos.foto}} />
+        <h4>{{productos.nombre}}</h4>
+        <p>{{productos.descripcion}}</p>
+        <strong>Precio: ${{productos.precio}} </strong>
+        <label for="cantidad">Seleccionar Cantidad</label> 
+        <input type="number" name="cantidad" value="1" min="0" max="{{productos.stock}}">
+        <input type="submit" value="Agregar al Carrito" />
+        </form>
+        <form action="/api/productos" method="get">
+        <input type="submit" value="volver a todos">
+        </form>
+      </li>
+  </ul>
+{{else}}
+  <strong>No hay productos</strong>
+{{/if}}
+</form>

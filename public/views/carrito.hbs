@@ -1,0 +1,7 @@
+<h4>usuario:{{cart.username}}</h4>
+<p>dirección:{{cart.direccion}}</p>
+<ul>
+{{#each cart.items}}
+<li> <strong>{{this.nombre}}</strong> Precio:${{this.precio}} cantidad:{{this.cantidad}}</li>
+{{/each}}
+</ul>
