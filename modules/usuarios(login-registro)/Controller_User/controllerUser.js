@@ -21,7 +21,7 @@ export default class UserController {
     }
 
     errorView(req, res) {
-        const mensajeDeError = req.headers
+        const mensajeDeError = "error"
         res.render("error", { mensajeDeError })
     }
     //ingreso y registro

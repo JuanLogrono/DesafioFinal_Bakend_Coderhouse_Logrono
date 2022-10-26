@@ -3,17 +3,15 @@ export class CarritoDto {
         this.username = data.username
         this.timestamp = data.timestamp
         this.direccion = data.direccion
-        this.items = [products]
+        this.items = products
     }
 }
 
 export class CarritoProductsDto {
     constructor(data) {
-        this.items = {
-            id: data.id,
-            nombre: data.nombre,
-            precio: data.precio,
-            cantidad: data.cantidad
-        }
+            this.id = data.id,
+            this.nombre = data.nombre,
+            this.precio = data.precio,
+            this.cantidad = data.cantidad
     }
 }

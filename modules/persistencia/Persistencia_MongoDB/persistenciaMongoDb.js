@@ -59,7 +59,7 @@ class PersistenciaMongoDb {
     async addInArray(param, objWithArray) {
         try {
             this.dbConnection()
-            await this.modelo.update(param, { $push: objWithArray })
+            await this.modelo.updateOne(param, { $push: objWithArray })
         } catch (error) {
             console.log(error, "addInArray persistencia")
         }

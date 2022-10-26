@@ -27,6 +27,7 @@ app.set("views","./public/views");
 app.set("view engine", "hbs");
 
 //rutas
+app.use("/api/carrito",routes.routerCarrito)
 app.use("/api/productos",routes.routerProductos)
 app.use("/api/login",routes.routerLogin)
 app.use("/api/registro",routes.routerRegister)

@@ -18,7 +18,7 @@
 {{#if hayProductos}}
   <ul>
     {{#each productos}}
-      <li><img src="{{this.foto}}" alt="{{this.foto}}" />
+     {{!--  <li><img src="{{this.foto}}" alt="{{this.foto}}" /> --}}
         <h4>{{this.nombre}}</h4>
         <strong>{{this.precio}} </strong>
         <form action="/api/productos/{{this.id}}" method="get">

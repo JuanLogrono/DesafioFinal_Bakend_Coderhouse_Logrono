@@ -1,9 +1,9 @@
 
 {{#if hayProductos}}
   <ul>
-<form action="/api/carrito" method="post">
+<form action="/api/carrito/{{productos.id}}" method="post">
       <li>
-        <img src={{productos.foto}}".jpg" alt={{productos.foto}} />
+        {{!-- <img src={{productos.foto}}".jpg" alt={{productos.foto}} /> --}}
         <h4>{{productos.nombre}}</h4>
         <p>{{productos.descripcion}}</p>
         <strong>Precio: ${{productos.precio}} </strong>

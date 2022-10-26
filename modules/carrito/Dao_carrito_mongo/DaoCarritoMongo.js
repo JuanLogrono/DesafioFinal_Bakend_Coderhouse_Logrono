@@ -30,7 +30,7 @@ export default class CarritoDaoMongo {
 
     async modifyProductQuantity(username, productId, newQty) {
         try {
-            await this.dao.upgradeObject({ username, "items.id": productId }, { "items.$.cantidad": newQty })
+            await this.dao.upgradeObject({ username, "items.id": productId},{"items.$.cantidad": newQty })
             return "cantidad agregada con éxito"
         } catch (error) {
             console.log(error, "modifyProductQuantity dao")
@@ -39,12 +39,25 @@ export default class CarritoDaoMongo {
 
     async readCartById(username) {
         try {
-            const cart = await this.dao.readObjects({ username })
-            cart.item = cart.item.map((e) => CarritoProductsDto(e))
-            const cartDto= new CarritoDto(cart,cart.items)
+            const cartArray = await this.dao.readObjects({ username })
+            const cart=cartArray[0]
+            if(!cart) return cart
+            const items=[]
+            cart.items.forEach((p)=>{let i = new CarritoProductsDto(p)
+            items.push(i)
+            })
+            const cartDto= new CarritoDto(cart,items)
             return cartDto
         } catch (error) {
             console.log(error, "readCartById dao")
+        }
+    }
+    //llamado desde OrderService al finalizar la orden
+    async deleteCart(username){
+        try {
+            await this.dao.deleteObject({username})
+        } catch (error) {
+            console.log(error,"deleteCart daoCarrito")
         }
     }
 }

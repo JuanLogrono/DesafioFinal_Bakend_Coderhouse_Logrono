@@ -1,7 +1,12 @@
-<h4>usuario:{{cart.username}}</h4>
-<p>dirección:{{cart.direccion}}</p>
+<h4>usuario:  {{cart.username}}</h4>
+<p>dirección:  {{cart.direccion}}</p>
 <ul>
 {{#each cart.items}}
-<li> <strong>{{this.nombre}}</strong> Precio:${{this.precio}} cantidad:{{this.cantidad}}</li>
+<li> <strong>{{this.nombre}}</strong>   Precio:${{this.precio}}   cantidad:{{this.cantidad}}  SUBTOTAL: ${{this.sub}}</li>
 {{/each}}
+<strong>TOTAL: $ {{total}}</strong>
 </ul>
+
+<form action="/api/orden" method="post">
+<input type="submit" value="enviar orden">
+</form>

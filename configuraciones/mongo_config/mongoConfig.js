@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema(
 
 const carritoSchema = new mongoose.Schema(
     {
-        timeStamp: { type: Date },
+        timeStamp: { type: String },
         username: { type: String, required: true },
         direccion: { type: String },
         items: { type: Array, required: true }
@@ -23,6 +23,7 @@ const carritoSchema = new mongoose.Schema(
 
 const userSchema = new mongoose.Schema({
     nombre: { type: String },
+    direccion: {type:String},
     telefono: { type: String },
     username: { type: String, required: true },
     password: { type: String, required: true }
@@ -30,16 +31,17 @@ const userSchema = new mongoose.Schema({
 
 const orderSchema = new mongoose.Schema({
     items: { type: Array, required: true },
-    numero_de_orden: { type: Number },
-    timestamp: { type: Date },
+    orden_numero: { type: Number },
+    timestamp: { type: String },
     estado: { type: String },
-    username: { type: String, required: true }
+    username: { type: String, required: true },
+    total: {type: Number}
 })
 
 const chatSchema = new mongoose.Schema({
     email: { type: String },
     tipo: { type: String },
-    timestamp: { type: Date },
+    timestamp: { type: String },
     cuerpo_mensaje: { type: String }
 })
 const connected= process.env.MONGO_CONNECTION

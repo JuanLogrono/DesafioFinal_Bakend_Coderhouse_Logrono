@@ -1,0 +1,13 @@
+{{#if hayOrdenes}}
+<div>
+    <h2>ordenes de compra de {{orders.username}}</h2>
+{{#each orders}}
+<ul>
+<li>Numero de orden: {{this.orden_numero}}</li>
+<li>Total ${{this.total}}</li>
+</ul>
+{{/each}}
+</div>
+{{else}}
+<strong>{{orders}}</strong>
+{{/if}}

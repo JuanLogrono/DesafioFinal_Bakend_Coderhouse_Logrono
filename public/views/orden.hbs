@@ -1,0 +1,12 @@
+<h2>Orden Recibida</h2>
+<p>numero de orden: {{orden_numero}}</p>
+
+<h4>usuario:  {{order.username}}</h4>
+<p>dirección:  {{order.direccion}}</p>
+<ul>
+{{#each order.items}}
+<li> <strong>{{this.nombre}}</strong>   Precio:${{this.precio}}   cantidad:{{this.cantidad}}  SUBTOTAL: ${{this.sub}}</li>
+{{/each}}
+<strong>TOTAL: $ {{order.total}}</strong>
+</ul>
+

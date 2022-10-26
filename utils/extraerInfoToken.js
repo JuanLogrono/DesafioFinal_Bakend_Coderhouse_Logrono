@@ -8,5 +8,5 @@ config()
  */
 export const extraerUsername=(token)=>{
    const data=Jwt.decode(token,process.env.SECRET)
-   return data
+   return data.sub
 }
