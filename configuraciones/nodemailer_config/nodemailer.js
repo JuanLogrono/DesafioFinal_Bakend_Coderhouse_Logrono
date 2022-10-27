@@ -16,11 +16,11 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-export const enviarMail = async (asunto, datos) => {
+export const enviarMail = async (username, asunto, datos) => {
     try {
         const info = await transporter.sendMail({
-            from: 'servidor Node.js',
-            to: mailAdmin.user,
+            from: mailAdmin.user,
+            to: username || mailAdmin.user,
             subject: asunto,
             html: datos,
 

@@ -1,3 +1,4 @@
+import calcularPrecioTotal from "../../../utils/calcularTotal.js";
 import { extraerUsername } from "../../../utils/extraerInfoToken.js";
 import CarritoService from "../service_carrito/serviceCarrito.js";
 
@@ -25,7 +26,8 @@ export default class CarritoController {
         const username = extraerUsername(token)
         try {
             const cart=await controllerCart.readCartById(username)
-            const total=cart.items.reduce((a,b)=>a.sub+b.sub)
+            if(cart.length<1)res.send(cart)
+            const total=calcularPrecioTotal(cart.items)
             res.render('carrito',{cart,total})
         } catch (error) {
             console.log(error, "readCartById controller")

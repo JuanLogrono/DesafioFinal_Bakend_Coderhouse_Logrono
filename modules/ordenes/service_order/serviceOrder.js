@@ -1,4 +1,6 @@
+import calcularPrecioTotal from "../../../utils/calcularTotal.js";
 import crearNumeroDeOrden from "../../../utils/crearNumeroDeOrden.js";
+import { mailOrder } from "../../../utils/mails.js";
 import CarritoDaoMongo from "../../carrito/Dao_carrito_mongo/DaoCarritoMongo.js";
 import OrdersDaoMongo from "../Dao_ordenes_mongo/DaoOrdenesMongo.js";
 
@@ -10,13 +12,15 @@ export default class OrdersService {
 
     async finishOrder(username) {
         try {
-            const orders = await this.service.readOrdersByUsername("")
+            const orders = await this.service.readOrders()
             const orderNumber = crearNumeroDeOrden(orders)
             const cart = await this.carritoDao.readCartById(username)
-            const total = cart.items.reduce((a, b) => a.sub + b.sub)
-            const newOrder = { ...cart[0], Orden_numero: orderNumber,total}
+            const total = calcularPrecioTotal(cart.items)
+            const timestamp=new Date()
+            const newOrder = { ...cart,timestamp, orden_numero: orderNumber,total}
             await this.service.finishOrder(newOrder)
             await this.carritoDao.deleteCart(username)
+            mailOrder(newOrder)
             return newOrder
         } catch (error) {
             console.log(error, "FinishOrder service")
@@ -26,7 +30,7 @@ export default class OrdersService {
     async readOrderByNumber(username,ordenNumero) {
         try {
             const order = await this.service.readOrderByNumber(ordenNumero)
-            if (!order || order.username !== username) return "no existe este numero de orden"
+            if ( order.username !== username) return "no existe este numero de orden"
             return order
         } catch (error) {
             console.log(error, "readOrderByNumber service")

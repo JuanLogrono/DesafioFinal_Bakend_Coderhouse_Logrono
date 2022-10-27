@@ -1,8 +1,10 @@
 {{#if hayOrdenes}}
 <div>
-    <h2>ordenes de compra de {{orders.username}}</h2>
+    <h2>ordenes de compra de {{username}}</h2>
+    <h4>cantidad: {{ordenesQty}} ordenes </h4>
 {{#each orders}}
-<ul>
+<h5>Orden:</h5>
+<ul>    
 <li>Numero de orden: {{this.orden_numero}}</li>
 <li>Total ${{this.total}}</li>
 </ul>

@@ -12,20 +12,22 @@ export const mailRegistro=(user)=>{
     <li>Teléfono: ${telefono}</li>
     <li>Dirección: ${direccion}</li>
     </ul>`
-    enviarMail(asunto,cuerpoMail)
+    enviarMail(_,asunto,cuerpoMail)
     return "mail de registro enviado"
 }
 
 
 
-export const mailOrder = (user,productsView)=>{
-    const asunto = `Nuevo pedido ${user.nombre} ${user.username}`
-    const listaProd= productsView.productos
+export const mailOrder = (user)=>{
+    
+    const asunto = `Pedido nro ${user.orden_numero} del cliente ${user.username}`
+    const destino="juanjoselogrono@gmail.com"
+    const items=user.items
     let lista=""
-    listaProd.map((e)=>{
-        lista+=`<li>${e.nombre}  $${e.precio}</li>`
-    })
+     items.map((e)=>{
+        lista+=`<li>${e.nombre} $${e.precio} X ${e.cantidad} Un</li>`
+    }) 
     const cuerpoMail = `<strong>Productos seleccionados:</strong> <ul>${lista}</ul>`
-    enviarMail(asunto,cuerpoMail)
+    enviarMail(destino,asunto,cuerpoMail)
     return "mail de orden enviado"
 }

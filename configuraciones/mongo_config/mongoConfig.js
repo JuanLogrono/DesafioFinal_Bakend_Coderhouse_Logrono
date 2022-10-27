@@ -34,7 +34,7 @@ const orderSchema = new mongoose.Schema({
     orden_numero: { type: Number },
     timestamp: { type: String },
     estado: { type: String },
-    username: { type: String, required: true },
+    username: { type: String},
     total: {type: Number}
 })
 

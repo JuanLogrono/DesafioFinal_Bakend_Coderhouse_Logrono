@@ -3,8 +3,9 @@ export class OrderDto {
         this.items= items,
         this.orden_numero= data.orden_numero,
         this.timestamp= data.timestamp,
-        this.estado= data.estado|| "Generada",
+        this.estado="Generada",
         this.username= data.username
+        this.direccion=data.direccion
         this.total=data.total
     }
 }

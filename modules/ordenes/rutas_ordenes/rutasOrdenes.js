@@ -7,8 +7,10 @@ routerOrdenes.use(authJWT)
 
 const orderRoutes= new OrderController()
 
-orderRoutes.post('/',orderRoutes.finishOrder)
+routerOrdenes.post('/',orderRoutes.finishOrder)
 
-orderRoutes.get('/order_number',orderRoutes.readOrderByNumber)
+routerOrdenes.get('/order_number',orderRoutes.readOrderByNumber)
 
-orderRoutes.get('/username',orderRoutes.readOrderByUsername)
+routerOrdenes.get('/find_by_number',orderRoutes.findByNumber)
+
+routerOrdenes.get('/username',orderRoutes.readOrderByUsername)

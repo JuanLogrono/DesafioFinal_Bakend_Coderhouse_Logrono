@@ -7,8 +7,7 @@
  */
 export default function TransformarEnArrayDeDTO(array,DTO){
     const items=[]
-            array.forEach((p)=>{let i = new DTO(p)
-            items.push(i)
-            })
+    
+            array.map((p)=>items.push( new DTO(p)))
 return items
 }
