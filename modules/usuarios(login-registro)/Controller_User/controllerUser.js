@@ -25,11 +25,10 @@ export default class UserController {
         res.render("error", { mensajeDeError })
     }
     //ingreso y registro
-    loginIngreso(req, res) {
+    async loginIngreso (req, res) {
         const { username } = req.body
-        const payload = {
-            sub: username
-        }
+        const payload = await userController.crearPayloadToken(username)
+       
         const token = jwtSign(payload, secret, { expiresIn: expire })
         res
             .cookie("jwt", token, { httpOnly: true, secure: true, signed: true })
@@ -38,7 +37,7 @@ export default class UserController {
     async newRegister(req, res) {
         const { nombre, telefono, username, direccion } = req.body
 
-        const bodyToAdd = { nombre, telefono, direccion }
+        const bodyToAdd = { nombre, telefono, direccion, autorizacion : "user" }
         try {
             await userController.completeUser(username, bodyToAdd)
             res.redirect("/api/login")
@@ -57,6 +56,6 @@ export default class UserController {
 
     exitSession(req, res) {
         res.clearCookie(jwt)
-        redirect("/api/login")
+       res.redirect("/api/login")
     }
 }

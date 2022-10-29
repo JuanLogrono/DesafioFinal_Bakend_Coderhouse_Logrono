@@ -4,9 +4,10 @@ config()
 /**
  * 
  * @param {token} auth 
- * @returns nombre_de_usuario_y_direccion
+ * @returns nombre_de_usuario_y_tipo
  */
 export const extraerUsername=(token)=>{
    const data=Jwt.decode(token,process.env.SECRET)
-   return data.sub
+   const {sub, user}=data
+   return {sub, user:user}
 }

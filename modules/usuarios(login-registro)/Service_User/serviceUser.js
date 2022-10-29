@@ -7,7 +7,7 @@ export default class UserService {
     constructor() {
         this.service = new UserDaoMongo()
     }
-    // completa el usuario guardado en registro con nombre, teléfono  
+    // completa el usuario guardado en registro con nombre, teléfono ,dirección
     async completeUser(username, bodyToComplete) {
         try {
             await this.service.upgradeUser(username, bodyToComplete)
@@ -16,6 +16,17 @@ export default class UserService {
             winstonLogger.error(error, "UserService-CompleteUser")
         }
     }
+async crearPayloadToken(us){
+try {
+    const user =await this.service.readUser(us)
+    const {username, autorizacion}=user[0]
+    const payload={sub:username, user:autorizacion}
+    return payload
+} catch (error) {
+    winstonLogger.error(error.message,'crearPayloadToken UserService')
+}
+}
+
     async sendMail(username) {
         try {
             const user= await this.service.readUser(username)

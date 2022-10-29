@@ -12,9 +12,9 @@ export default class CarritoController {
         const token = req.signedCookies.jwt
         const id=req.params.idProduct
         const producto={...cantidad,id}
-        const username = extraerUsername(token)
+        const tokenData = extraerUsername(token)
          try {
-            await controllerCart.addProductOrCreateCart(username,producto) 
+            await controllerCart.addProductOrCreateCart(tokenData.sub,producto) 
             res.redirect('/api/productos')
          } catch (error) {
             console.log(error, "addProductOrCreateCart controller")
@@ -23,9 +23,9 @@ export default class CarritoController {
 
     async readCartById(req, res) {
         const token = req.signedCookies.jwt
-        const username = extraerUsername(token)
+        const tokenData = extraerUsername(token)
         try {
-            const cart=await controllerCart.readCartById(username)
+            const cart=await controllerCart.readCartById(tokenData.sub)
             if(cart.length<1)res.send(cart)
             const total=calcularPrecioTotal(cart.items)
             res.render('carrito',{cart,total})

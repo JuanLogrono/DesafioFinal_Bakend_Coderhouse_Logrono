@@ -7,9 +7,9 @@ export default class OrderController {
 
     async finishOrder(req, res) {
         const token = req.signedCookies.jwt
-        const username = extraerUsername(token)
+        const tokenData = extraerUsername(token)
         try {
-            const order = await controllerOrder.finishOrder(username)
+            const order = await controllerOrder.finishOrder(tokenData.sub)
             res.render('orden', { order })
         } catch (error) {
             console.log(error, "finishOrder controller")
@@ -18,10 +18,10 @@ export default class OrderController {
 
     async readOrderByNumber(req, res) {
         const token = req.signedCookies.jwt
-        const username = extraerUsername(token)
+        const tokenData = extraerUsername(token)
         const numberOrder =Number(req.query.orden_numero)
         try {
-            const order = await controllerOrder.readOrderByNumber(username, numberOrder)
+            const order = await controllerOrder.readOrderByNumber(tokenData.sub, numberOrder)
             res.render('orden', { order,total:order.total })
         } catch (error) {
             console.log(error, "readOrderByNumber controller")
@@ -30,10 +30,10 @@ export default class OrderController {
 
     async readOrderByUsername(req, res) {
         const token = req.signedCookies.jwt
-        const username = extraerUsername(token)
+        const tokenData = extraerUsername(token)
         try {
             let hayOrdenes = true
-            const orders = await controllerOrder.readOrderByUsername(username)
+            const orders = await controllerOrder.readOrderByUsername(tokenData.sub)
             const ordenesQty=orders.length
             if (ordenesQty < 1) hayOrdenes = false
                 res.render('ordenes', {ordenesQty,username,orders,hayOrdenes})

@@ -26,7 +26,8 @@ const userSchema = new mongoose.Schema({
     direccion: {type:String},
     telefono: { type: String },
     username: { type: String, required: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    autorizacion: {type:String}
 })
 
 const orderSchema = new mongoose.Schema({
@@ -39,10 +40,10 @@ const orderSchema = new mongoose.Schema({
 })
 
 const chatSchema = new mongoose.Schema({
-    email: { type: String },
-    tipo: { type: String },
+    username: { type: String },
+    autorizacion: { type: String },
     timestamp: { type: String },
-    cuerpo_mensaje: { type: String }
+    mensaje: { type: String }
 })
 const connected= process.env.MONGO_CONNECTION
 

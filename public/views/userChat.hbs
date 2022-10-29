@@ -1,0 +1,13 @@
+{{#if hayMensajes}}
+<h1>hola</h1>
+<h2>mensajes usuario:<strong id="username">{{username}}</strong> </h2>
+{{#each mensajes}}
+<div class="messagesStyle">
+    <p class="emailStyle">{{this.username}}</p>
+    <p class="dateStyle">{{this.timestamp}}</p>
+    <p class="textStyle">{{this.mensaje}}</p>
+</div>
+{{/each}}
+{{else}}
+<strong>{{mensajes}}</strong>
+{{/if}}

@@ -1,11 +1,15 @@
-/* import { Router } from "express";
+import express from 'express'
 import { authJWT } from "../../../middlewares/jwtAuth.js";
+import ChatController from "../controller_chat/controllerChat.js";
 
-export const routerChat=Router()
+
+export const routerChat=express.Router()
+
+const chatRouter=new ChatController()
+
+
 routerChat.use(authJWT)
 
-routerChat.get("/",)
+routerChat.get("/",chatRouter.renderChatPage)
 
-routerChat.post("/",)
-
-routerChat.get("/username",) */
+routerChat.get("/username",chatRouter.renderUserChatPage)
