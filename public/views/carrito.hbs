@@ -1,12 +1,15 @@
+{{#if hayCarrito}}
+{{#each cart.items}}
 <h4 class="datos_carritoOrden">usuario:  {{cart.username}}</h4>
 <p class="datos_carritoOrden">dirección:  {{cart.direccion}}</p>
 <ul>
-{{#each cart.items}}
 <li class="items_carritoOrden"> <strong>{{this.nombre}}</strong>  <p>Precio:${{this.precio}}</p>   <p>cantidad:{{this.cantidad}}</p>   <strong>SUBTOTAL: ${{this.sub}}</strong></li>
 {{/each}}
 <strong class="total">TOTAL: $ {{total}}</strong>
 </ul>
-
 <form action="/api/orden" method="post">
 <input type="submit" value="enviar orden">
 </form>
+{{else}}
+<strong>aun no hay productos en tu carrito</strong>
+{{/if}}

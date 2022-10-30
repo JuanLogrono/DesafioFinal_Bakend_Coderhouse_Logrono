@@ -1,7 +1,7 @@
 {{#if hayProductos}}
   <ul class="ulProducts">
     {{#each productos}}
-        <li class="li_styles_products"><img src='../imagenes/{{this.foto}}.jpg' alt="{{this.foto}}" />
+        <li class="li_styles_products"><img src='/imagenes/{{this.foto}}.jpg' alt="{{this.foto}}" />
         <h4>{{this.nombre}}</h4>
         <strong>{{this.precio}} </strong>
         <form action="/api/productos/{{this.id}}" method="get">

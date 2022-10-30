@@ -1,21 +1,18 @@
-
 {{#if hayProductos}}
-  
-      <div class="productById_view">
-<form action="/api/carrito/{{productos.id}}" method="post">
-        <img src='../imagenes/{{productos.foto}}.jpg' alt="{{productos.foto}}" />
-        <h4>{{productos.nombre}}</h4>
-        <p>{{productos.descripcion}}</p>
-        <strong>Precio: ${{productos.precio}} </strong>
-        <label for="cantidad">Seleccionar Cantidad</label> 
-        <input type="number" name="cantidad" value="1" min="0" max="{{productos.stock}}">
-        <input type="submit" value="Agregar al Carrito" />
-        </form>
-        <form action="/api/productos/" method="get">
-        <input type="submit" value="volver a todos">
-        </form>
-      </div>
+
+<div class="productById_view">
+  <img src='/imagenes/{{productos.foto}}.jpg' alt="{{productos.foto}}" />
+  <form action="/api/carrito/{{productos.id}}" method="post">
+    <h4>{{productos.nombre}}</h4>
+    <p>{{productos.descripcion}}</p>
+    <strong>Precio: ${{productos.precio}} </strong>
+    <label for="cantidad">Seleccionar Cantidad</label>
+    <input type="number" name="cantidad" value="1" min="0" max="{{productos.stock}}">
+    <input type="submit" value="Agregar al Carrito" />
+  </form>
+  <a href="/api/productos/">Seguir viendo</a>
+</div>
 {{else}}
-  <strong>No hay productos</strong>
+<strong>No hay productos</strong>
 {{/if}}
 </form>

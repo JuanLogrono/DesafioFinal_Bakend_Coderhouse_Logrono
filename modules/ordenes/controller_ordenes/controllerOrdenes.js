@@ -40,10 +40,11 @@ export default class OrderController {
         const tokenData = extraerUsername(token)
         const username = tokenData.sub
         try {
-            let hayOrdenes = true
+            let hayOrdenes = false
+            let ordenesQty=0
             const orders = await controllerOrder.readOrderByUsername(username)
-            const ordenesQty = orders.length
-            if (ordenesQty < 1) hayOrdenes = false
+            if (orders){ hayOrdenes = true
+             ordenesQty = orders.length}
             res.render('ordenes', { ordenesQty, username, orders, hayOrdenes })
         } catch (error) {
             console.log(error, "readOrderByUsername controller")

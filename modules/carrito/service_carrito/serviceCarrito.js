@@ -39,7 +39,7 @@ export default class CarritoService {
     async readCartById(username) {
         try {
             const cart = await this.service.readCartById(username)
-            if (!cart) return "carrito inexistente"
+            if (!cart) return null
   
             for (let i = 0; i < cart.items.length; i++) {
                 let sub = cart.items[i].cantidad * cart.items[i].precio;

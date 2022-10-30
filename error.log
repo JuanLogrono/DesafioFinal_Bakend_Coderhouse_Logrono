@@ -1,0 +1,2 @@
+{"level":"error","message":"Parse error on line 14:\n... tu carrito</strong>\n-----------------------^\nExpecting 'OPEN_ENDBLOCK', got 'EOF'"}
+{"level":"error","message":"if doesn't match each - 4:3"}

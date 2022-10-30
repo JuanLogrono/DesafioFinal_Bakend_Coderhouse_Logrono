@@ -8,7 +8,7 @@ import cookieParser from 'cookie-parser'
 import { Server as HttpServer } from "http";
 import { Server as IoServer } from "socket.io";
 import { serverIo } from './modules/chat/controller_chat/socketIo_Chat.js'
-
+import err from './middlewares/errors.js'
 config()
 
 const app = express()
@@ -38,7 +38,11 @@ app.use("/api/productos",routes.routerProductos)
 app.use("/api/login",routes.routerLogin)
 app.use("/api/registro",routes.routerRegister)
 app.use("/api/chat",routes.routerChat)
+app.use("/api/info",routes.routerInfo)
 
+//mid
+app.use(err.errorRuta)
+app.use(err.catchError)
 
 const port = process.env.PORT
 httpServer.listen(port, console.log(`servidor escuchando en el puerto ${port}`))
