@@ -8,8 +8,9 @@ export default class OrderController {
     async finishOrder(req, res) {
         const token = req.signedCookies.jwt
         const tokenData = extraerUsername(token)
+        const username = tokenData.sub
         try {
-            const order = await controllerOrder.finishOrder(tokenData.sub)
+            const order = await controllerOrder.finishOrder(username)
             res.render('orden', { order })
         } catch (error) {
             console.log(error, "finishOrder controller")
@@ -19,10 +20,16 @@ export default class OrderController {
     async readOrderByNumber(req, res) {
         const token = req.signedCookies.jwt
         const tokenData = extraerUsername(token)
-        const numberOrder =Number(req.query.orden_numero)
+        const numberOrder = Number(req.query.orden_numero)
         try {
+            let existe = false
             const order = await controllerOrder.readOrderByNumber(tokenData.sub, numberOrder)
-            res.render('orden', { order,total:order.total })
+            if (order !==null) {
+                existe = true;
+                const { total } = order
+                res.render('orden', { order, total, existe })
+            }
+            else res.render('orden',{existe})
         } catch (error) {
             console.log(error, "readOrderByNumber controller")
         }
@@ -31,18 +38,19 @@ export default class OrderController {
     async readOrderByUsername(req, res) {
         const token = req.signedCookies.jwt
         const tokenData = extraerUsername(token)
+        const username = tokenData.sub
         try {
             let hayOrdenes = true
-            const orders = await controllerOrder.readOrderByUsername(tokenData.sub)
-            const ordenesQty=orders.length
+            const orders = await controllerOrder.readOrderByUsername(username)
+            const ordenesQty = orders.length
             if (ordenesQty < 1) hayOrdenes = false
-                res.render('ordenes', {ordenesQty,username,orders,hayOrdenes})
+            res.render('ordenes', { ordenesQty, username, orders, hayOrdenes })
         } catch (error) {
             console.log(error, "readOrderByUsername controller")
         }
     }
 
-     findByNumber(_,res){
+    findByNumber(_, res) {
         res.render('ordenPorNumero')
     }
 }

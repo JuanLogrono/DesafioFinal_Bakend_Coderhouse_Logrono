@@ -32,6 +32,7 @@ export default class OrdersDaoMongo {
     async readOrderByNumber(orden_numero) {
         try {
             const order = await this.dao.readObjects({orden_numero})
+            if (order.length<1) return null
             const items = []
             order[0].items.map((p)=>items.push( new OrdenProductsDto(p)))
             const orderDto = new OrderDto(order[0], items)

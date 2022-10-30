@@ -30,7 +30,6 @@ export default class OrdersService {
     async readOrderByNumber(username,ordenNumero) {
         try {
             const order = await this.service.readOrderByNumber(ordenNumero)
-            if ( order.username !== username) return "no existe este numero de orden"
             return order
         } catch (error) {
             console.log(error, "readOrderByNumber service")

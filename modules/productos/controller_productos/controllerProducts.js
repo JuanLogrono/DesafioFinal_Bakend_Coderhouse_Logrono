@@ -11,10 +11,10 @@ export default class ProductController {
         let url = "productos"
         if (id) url = "productById"
         try {
-            let hayProductos=true
+            let hayProductos = true
             const productos = await controller.readProducts(id)
-            if(productos.length<1)hayProductos=false
-            res.render(url, { productos, Titulo: "disponible",hayProductos })
+            if (productos.length < 1) hayProductos = false
+            res.render(url, { productos, Titulo: "disponible", hayProductos })
         } catch (error) {
             //winstonLogger.error(error.message, "readProducts controller")
         }
@@ -25,7 +25,7 @@ export default class ProductController {
             let hayProductos = true
             const productos = await controller.readByCategory(categoria)
             if (productos.length < 1) hayProductos = false
-            res.render("productos", { productos, titulo: categoria,hayProductos })
+            res.render("productos", { productos, titulo: categoria, hayProductos })
         } catch (error) {
             winstonLogger.error(error.message, "readByCategory controller")
         }
@@ -40,6 +40,7 @@ export default class ProductController {
             winstonLogger.error(error.message, "addProduct controller")
         }
     }
+
     async deleteProduct(req, res) {
         const id = req.params.id
         try {
@@ -48,7 +49,8 @@ export default class ProductController {
         } catch (error) {
             winstonLogger.error(error.message, "deleteProducts")
         }
-    } 
+    }
+
     async upgradeProduct(req, res) {
         const id = req.params.id
         const body = req.body

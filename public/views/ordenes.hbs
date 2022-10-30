@@ -1,15 +1,15 @@
 {{#if hayOrdenes}}
 <div>
-    <h2>ordenes de compra de {{username}}</h2>
-    <h4>cantidad: {{ordenesQty}} ordenes </h4>
+    <h2 class="datos_carritoOrden">ordenes de compra de {{username}}</h2>
+    <h4 class="datos_carritoOrden">cantidad: {{ordenesQty}} ordenes </h4>
 {{#each orders}}
-<h5>Orden:</h5>
+<h5 class="datos_carritoOrden">Orden:</h5>
 <ul>    
-<li>Numero de orden: {{this.orden_numero}}</li>
-<li>Total ${{this.total}}</li>
+<li class="datos_carritoOrden">Numero de orden: {{this.orden_numero}}</li>
+<li class="datos_carritoOrden">Total ${{this.total}}</li>
 </ul>
 {{/each}}
 </div>
 {{else}}
-<strong>{{orders}}</strong>
+<strong>no hay ordenes para este usuario</strong>
 {{/if}}

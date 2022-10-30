@@ -1,9 +1,9 @@
 
 {{#if hayProductos}}
-  <ul>
+  
+      <div class="productById_view">
 <form action="/api/carrito/{{productos.id}}" method="post">
-      <li>
-        {{!-- <img src={{productos.foto}}".jpg" alt={{productos.foto}} /> --}}
+        <img src='../imagenes/{{productos.foto}}.jpg' alt="{{productos.foto}}" />
         <h4>{{productos.nombre}}</h4>
         <p>{{productos.descripcion}}</p>
         <strong>Precio: ${{productos.precio}} </strong>
@@ -11,11 +11,10 @@
         <input type="number" name="cantidad" value="1" min="0" max="{{productos.stock}}">
         <input type="submit" value="Agregar al Carrito" />
         </form>
-        <form action="/api/productos" method="get">
+        <form action="/api/productos/" method="get">
         <input type="submit" value="volver a todos">
         </form>
-      </li>
-  </ul>
+      </div>
 {{else}}
   <strong>No hay productos</strong>
 {{/if}}

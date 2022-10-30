@@ -23,3 +23,4 @@ const sendMessage = () => {
     document.getElementById('messageText').value = '';
     return false
 }
+

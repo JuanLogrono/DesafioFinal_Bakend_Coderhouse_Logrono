@@ -1,10 +1,10 @@
-<h4>usuario:  {{cart.username}}</h4>
-<p>dirección:  {{cart.direccion}}</p>
+<h4 class="datos_carritoOrden">usuario:  {{cart.username}}</h4>
+<p class="datos_carritoOrden">dirección:  {{cart.direccion}}</p>
 <ul>
 {{#each cart.items}}
-<li> <strong>{{this.nombre}}</strong>   Precio:${{this.precio}}   cantidad:{{this.cantidad}}  SUBTOTAL: ${{this.sub}}</li>
+<li class="items_carritoOrden"> <strong>{{this.nombre}}</strong>  <p>Precio:${{this.precio}}</p>   <p>cantidad:{{this.cantidad}}</p>   <strong>SUBTOTAL: ${{this.sub}}</strong></li>
 {{/each}}
-<strong>TOTAL: $ {{total}}</strong>
+<strong class="total">TOTAL: $ {{total}}</strong>
 </ul>
 
 <form action="/api/orden" method="post">

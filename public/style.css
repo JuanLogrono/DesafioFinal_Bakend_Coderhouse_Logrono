@@ -1,5 +1,101 @@
+body{
+    width: 90%;
+    text-align: center;
+    background-color: lightgray;
+}
+
+input{
+    margin: 2rem;
+}
+.links_nav{
+    display: flex;
+    justify-content: space-around;
+}
+
+.links_nav > a {
+    text-decoration: none;
+    border: solid black 1px;
+    padding: 1px 2px;
+}
+
+.ulProducts{
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.li_styles_products{
+    list-style: none;
+    width: 10rem;
+    height: 17rem;
+    border: solid 2px darkgray;
+    margin: 5px;
+}
+
+
 #chat{
     width: 100%;
     height: 19rem;
     overflow-y:scroll;  
     }
+
+img{
+    height: 50%;
+    width: 90%;
+}
+
+.productById_view{
+    width: 20rem;
+    height: 30rem;
+    border: solid darkgray 2.5px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.datos_carritoOrden{
+    font-size: 1.5rem;
+    border: dashed 1px black;
+}
+
+.items_carritoOrden{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    border: solid 2px black;
+    padding: 2px 3px
+}
+
+.total{
+    margin:20rem;
+}
+
+.user{
+    background-color: lightblue;
+    font-size: 1.2rem;
+}
+
+.admin{
+    background-color: lightgreen;
+    font-size: 1.2rem;
+}
+.mensajes_display{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+#messageText{
+    width: 35rem;
+    height: 3rem;
+}
+.botonEnviarChat{
+    width: 5rem;
+    height: 2rem;
+}

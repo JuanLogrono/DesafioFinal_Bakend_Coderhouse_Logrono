@@ -1,24 +1,7 @@
-<form action="/api/productos/filtro/" method="get"></form>
-
-
-<form action="/api/productos" method="post">
-  <input type="text" name="foto" placeholder="nombre de la imagen" />
-  <input type="text" name="nombre" placeholder="nombre" />
-  <input type="text" name="descripcion" placeholder="descripcion" />
-  <select name="categoria">
-    <option value="hombre">hombre</option>
-    <option value="mujer">mujer</option>
-    <option value="accesorio">accesorios</option>
-  </select>
-  <input type="number" name="precio" placeholder="precio">
-  <input type="number" name="stock" placeholder="stock">
-  <input type="submit" value="Agregar a la lista" />
-</form>
-
 {{#if hayProductos}}
-  <ul>
+  <ul class="ulProducts">
     {{#each productos}}
-     {{!--  <li><img src="{{this.foto}}" alt="{{this.foto}}" /> --}}
+        <li class="li_styles_products"><img src='../imagenes/{{this.foto}}.jpg' alt="{{this.foto}}" />
         <h4>{{this.nombre}}</h4>
         <strong>{{this.precio}} </strong>
         <form action="/api/productos/{{this.id}}" method="get">

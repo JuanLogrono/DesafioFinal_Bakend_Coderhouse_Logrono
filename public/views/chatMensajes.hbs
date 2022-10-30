@@ -1,8 +1,10 @@
-<h1>si</h1>
+
 {{#each messagesList}}
   <div class="{{this.autorizacion}}">
-    <p class="emailStyle">{{this.username}}</p>
-    <p class="dateStyle">{{this.timestamp}}</p>
-    <p class="textStyle">{{this.mensaje}}</p>
+    <div class="mensajes_display">
+      <p class="emailStyle">{{this.username}}</p>
+      <p class="dateStyle">{{this.timestamp}}</p>
+    </div>
+      <p class="textStyle">{{this.mensaje}}</p>
   </div>
 {{/each}}

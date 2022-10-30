@@ -11,10 +11,10 @@ routerProductos.use(authJWT)
 
 routerProductos.get("/:id?",ProductRouter.readProducts)
 
-routerProductos.get("/filtro/:categoria",ProductRouter.readByCategory)
+routerProductos.get("/:categoria?",ProductRouter.readByCategory)
 
 routerProductos.post("/",ProductRouter.addProduct)
 
-routerProductos.delete("/:id",ProductRouter.deleteProduct)
-
 routerProductos.put("/:id",ProductRouter.upgradeProduct)
+
+routerProductos.delete("/:id",ProductRouter.deleteProduct)
