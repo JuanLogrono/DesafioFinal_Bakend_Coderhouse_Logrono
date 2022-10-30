@@ -52,7 +52,7 @@ export const products = mongoose.model('producto', productSchema)
 export const user = mongoose.model('usuarios', userSchema)
 export const order = mongoose.model('ordenes', orderSchema)
 export const chat = mongoose.model('chat', chatSchema)
-export const conexion = "mongodb+srv://juanLogrono:Juan1234@cluster0.evzhzyt.mongodb.net/?retryWrites=true&w=majority"
-//TODO
+export const conexion = connected
+
 
  
