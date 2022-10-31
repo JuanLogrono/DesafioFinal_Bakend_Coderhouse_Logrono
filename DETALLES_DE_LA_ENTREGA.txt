@@ -1,0 +1,19 @@
+Se implementaron las rutas pedidas
+"/api/orden"
+"/api/carrito"
+"/api/productos"
+"/api/login"
+"/api/registro"
+"/api/chat"
+"/api/info"
+"/api/admin"
+
+a cualquier ruta que se ingrese sin el token, guardado en una cookie (salvo api/registro) redirige a api/login 
+las rutas dentro de la ruta admin están protegidas por un middleware que verifique que ese usuario es administrador
+En estas rutas se encuentran agregar,borrar,o modificar productos
+
+hasta el momento el único usuario ADMINISTRADOR es usuario: admin@mail  password:admin
+
+y el único usuario es user@mail  password:user
+
+dejo subida para facilitar la corrección una carpeta .env_copia para las variables de entorno

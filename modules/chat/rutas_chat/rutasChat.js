@@ -12,4 +12,4 @@ routerChat.use(authJWT)
 
 routerChat.get("/",chatRouter.renderChatPage)
 
-routerChat.get("/username",chatRouter.renderUserChatPage)
+routerChat.get("/:username",chatRouter.renderUserChatPage)

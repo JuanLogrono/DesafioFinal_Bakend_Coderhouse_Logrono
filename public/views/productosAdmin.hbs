@@ -1,0 +1,32 @@
+<form class="form_agregarProducto" action="/api/admin/productos" method="post">
+  <input type="text" name="nombre" placeholder="nombre" />
+  <input type="text" name="descripcion" placeholder="descripcion" />
+  <input type="number" name="precio" placeholder="precio" />
+  <input type="number" name="stock" placeholder="stock" />
+  <select name="categoria">
+    <option value="hombre">hombre</option>
+    <option value="mujer">mujer</option>
+    <option value="accesorio">accesorio</option>
+  </select>
+  <input type="text" name="foto" placeholder="nombre de la imagen" />
+  <input type="submit" value="Agregar Producto" />
+</form>
+
+{{#if hayProductos}}
+ <input type="text"  style="display: none"value="{{productos.id}}"/>
+  <ul class="ulProducts">
+    {{#each productos}}
+      <li class="li_styles_products"><img
+          src="/imagenes/{{this.foto}}.jpg"
+          alt="{{this.foto}}"
+        />
+        <h4>{{this.nombre}}</h4>
+        <strong>{{this.precio}} </strong>
+       <div><a href="/api/admin/productos/{{this.id}}">Modificar producto</a></div>
+       <button  value="{{this.id}}" onclick="buttonDelete(event)">eliminar</button>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <strong>No hay productos</strong>
+{{/if}}

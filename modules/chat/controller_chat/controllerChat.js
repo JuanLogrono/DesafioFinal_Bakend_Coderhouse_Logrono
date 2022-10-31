@@ -14,12 +14,10 @@ export default class ChatController {
     }
 
     async renderUserChatPage(req, res) {
-        const token = req.signedCookies.jwt
-        const tokenData = extraerUsername(token)
-        const username = tokenData.sub
+        const username = req.params.username
         const mensajes = await ControllerChat.readMessages(username)
         let hayMensajes = false
-        if (mensajes.length > 0) hayMensajes=true
+        if (mensajes) hayMensajes=true
             res.render('userChat.hbs', { username, mensajes,hayMensajes })
     }
 }

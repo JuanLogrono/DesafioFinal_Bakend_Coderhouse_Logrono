@@ -13,7 +13,7 @@ export default class ProductsService {
 
             return (productos.length>1) ? productos : productos[0]
         } catch (error) {
-            //winstonLogger.error(error.message, "readProducts service")
+            winstonLogger.error(error.message, "readProducts service")
         }
     }
     async readByCategory(category) {

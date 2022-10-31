@@ -25,7 +25,7 @@ export default class ChatService {
                 mensajes = await this.service.readMessages()
             } else {
                 const traerMensajes = await this.service.messagesByUsername(username)
-                if (traerMensajes.length < 1) mensajes = "no hay mensajes para este usuario"
+                if (traerMensajes.length < 1) return null
                 mensajes = traerMensajes
             }
             return mensajes

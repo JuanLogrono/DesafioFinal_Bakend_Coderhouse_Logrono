@@ -9,13 +9,14 @@ import { Server as HttpServer } from "http";
 import { Server as IoServer } from "socket.io";
 import { serverIo } from './modules/chat/controller_chat/socketIo_Chat.js'
 import err from './middlewares/errors.js'
+
 config()
 
 const app = express()
 const httpServer = new HttpServer(app);
 //express mid
-app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 app.use(express.static('public'))
 
 //socket.io
@@ -32,6 +33,7 @@ app.set("views","./public/views");
 app.set("view engine", "hbs");
 
 //rutas
+app.get('/',(_,res)=>{res.redirect('/api/productos')})
 app.use("/api/orden",routes.routerOrdenes)
 app.use("/api/carrito",routes.routerCarrito)
 app.use("/api/productos",routes.routerProductos)
@@ -39,7 +41,7 @@ app.use("/api/login",routes.routerLogin)
 app.use("/api/registro",routes.routerRegister)
 app.use("/api/chat",routes.routerChat)
 app.use("/api/info",routes.routerInfo)
-
+app.use("/api/admin",routes.routerAdmin)
 //mid
 app.use(err.errorRuta)
 app.use(err.catchError)

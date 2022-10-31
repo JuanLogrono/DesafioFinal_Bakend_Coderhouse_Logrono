@@ -52,7 +52,7 @@ export default class CarritoDaoMongo {
             console.log(error, "readCartById dao")
         }
     }
-    //llamado desde OrderService al finalizar la orden
+    //también llamado desde OrderService al finalizar la orden
     async deleteCart(username){
         try {
             await this.dao.deleteObject({username})

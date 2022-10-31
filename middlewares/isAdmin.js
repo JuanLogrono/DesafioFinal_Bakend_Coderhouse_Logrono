@@ -6,5 +6,5 @@ export const isAdmin = (req, res, next) => {
     const data = extraerUsername(token)
     let permiso= data.user
     if(permiso === "admin")  next()
-    else res.send("el usuario no tiene permiso para esta ruta")
+    else res.render('error',{error:"Error de Permisos",mensaje:"el usuario no tiene permiso para esta ruta"})
 }

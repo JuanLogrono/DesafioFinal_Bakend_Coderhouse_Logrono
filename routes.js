@@ -5,6 +5,7 @@ import { routerCarrito } from "./modules/carrito/rutas_carrito/rutasCarrito.js";
 import { routerOrdenes } from './modules/ordenes/rutas_ordenes/rutasOrdenes.js'
 import { routerChat } from './modules/chat/rutas_chat/rutasChat.js'
 import { routerInfo } from "./modules/vistas_info/rutas_info/routerInfo.js";
+import { routerAdmin } from "./modules/admin/rutas_admin/routerAdmin.js";
 
 export default {
     routerLogin,
@@ -13,5 +14,6 @@ export default {
     routerCarrito,
     routerOrdenes,
     routerChat,
-    routerInfo
+    routerInfo,
+    routerAdmin
 }

@@ -1,0 +1,13 @@
+<h2>Modificar productos</h2>
+<form name="modificar_producto"   onsubmit="return modificarProducto()">
+  <input type="text"   id="idProd" value={{productos.id}} style="display: none;">
+  <label for="nombre">nombre actual:{{productos.nombre}} </label>
+  <input type="text" name="nombre" id="nombre" placeholder="nuevo nombre" />
+  <label for="descripcion">Descripción actual: {{productos.descripcion}}</label>
+  <input type="text" name="descripcion" id="descripcion" placeholder="nueva descripción" />
+  <label for="precio">Precio actual:${{productos.precio}}</label>
+  <input type="number" name="precio" id="precio" placeholder="nuevo precio" />
+  <label for="stock">stock actual:{{productos.stock}}</label>
+  <input type="number" name="stock" id="stock" placeholder="nuevo stock" />
+  <input type="submit" value="enviar cambios" />
+</form> 
