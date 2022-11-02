@@ -30,7 +30,7 @@ export default class CarritoDaoMongo {
 
     async modifyProductQuantity(username, productId, newQty) {
         try {
-            await this.dao.upgradeObject({ username, "items.id": productId},{"items.$.cantidad": newQty })
+            await this.dao.updateObject({ username, "items.id": productId},{"items.$.cantidad": newQty })
             return "cantidad agregada con éxito"
         } catch (error) {
             console.log(error, "modifyProductQuantity dao")
@@ -50,6 +50,14 @@ export default class CarritoDaoMongo {
             return cartDto
         } catch (error) {
             console.log(error, "readCartById dao")
+        }
+    }
+
+    async updateCart(username, body){
+        try {
+            await this.dao.updateObject({username},body)
+        } catch (error) {
+            console.log(error,"updateCart dao")
         }
     }
     //también llamado desde OrderService al finalizar la orden

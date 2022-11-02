@@ -9,7 +9,7 @@
 </ul>
 <form action="/api/orden" method="post">
 <input type="submit" value="enviar orden">
-<a href="/api/carrito/modificar">Modificar datos</a>
+<a href="/api/carrito/modificar/{{cart.username}}">Modificar datos</a>
 </form>
 {{else}}
 <strong>aun no hay productos en tu carrito</strong>

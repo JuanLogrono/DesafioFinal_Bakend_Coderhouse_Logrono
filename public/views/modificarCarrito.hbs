@@ -1,0 +1,23 @@
+
+
+<h4 class="datos_carritoOrden">usuario:  {{cart.username}}</h4>
+<div>
+<p class="datos_carritoOrden">dirección:  {{cart.direccion}}</p>
+<label for="direccion">Modificar dirección de entrega:</label>
+<input type="text" name="direccion" id="dir">
+<button onclick="modificarDireccion(event)" value="{{cart.username}}">cambiar dirección</button>
+</div>
+<ul>
+{{#each cart.items}}
+
+<li class="items_carritoOrden"> <strong>{{this.nombre}}</strong>  <p>Precio:${{this.precio}}</p>  
+ <p>cantidad:{{this.cantidad}}</p>
+ <input type="number" name="cantidad" id="modificar_cantidad" placeholder="modificar cantidad">
+<button  onclick="modificarCantidad(event)" name="{{cart.username}}" value="{{this.id}}">modificar cantidad</button>
+<button onclick="eliminarProductoCarrito()" value="{{this.id}}">eliminar producto</button>
+</li>
+{{/each}}
+</ul>
+<button onclick="eliminarCarrito" value="{{cart.username}}">eliminar carrito</button>
+<a href="/api/carrito">volver</a>
+</form>

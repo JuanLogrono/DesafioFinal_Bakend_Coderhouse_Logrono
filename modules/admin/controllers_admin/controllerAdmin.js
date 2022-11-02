@@ -35,10 +35,10 @@ export class ControllerAdmin {
         const id = req.params.id
         const body = req.body
         try {
-            await productAdminService.upgradeProduct(id, body)
+            await productAdminService.updateProduct(id, body)
             res.send(body)
         } catch (error) {
-            winstonLogger.error(error.message, "upgradeProducts controller")
+            winstonLogger.error(error.message, "updateProducts controller")
         }
     }
 

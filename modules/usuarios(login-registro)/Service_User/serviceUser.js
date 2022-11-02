@@ -10,7 +10,7 @@ export default class UserService {
     // completa el usuario guardado en registro con nombre, teléfono ,dirección
     async completeUser(username, bodyToComplete) {
         try {
-            await this.service.upgradeUser(username, bodyToComplete)
+            await this.service.updateUser(username, bodyToComplete)
             return await this.sendMail(username)
         } catch (error) {
             winstonLogger.error(error, "UserService-CompleteUser")

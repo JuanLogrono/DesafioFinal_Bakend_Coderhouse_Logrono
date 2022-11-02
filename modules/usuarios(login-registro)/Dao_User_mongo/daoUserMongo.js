@@ -22,12 +22,12 @@ export default class UserDaoMongo {
             winstonLogger.error(error, "UserDaoMongo-readUser")
         }
     }
-    async upgradeUser(username, bodyToAdd) {
+    async updateUser(username, bodyToAdd) {
         try {
-            return await this.dao.upgradeObject({username},bodyToAdd)
+            return await this.dao.updateObject({username},bodyToAdd)
 
         } catch (error) {
-            winstonLogger.error(error, "UserDaoMongo-UpgradeUser")
+            winstonLogger.error(error, "UserDaoMongo-updateUser")
         }
     }
 }

@@ -33,13 +33,13 @@ class PersistenciaMongoDb {
             winstonLogger.error(error, "persistencia mongoDb readObject")
         }
     }
-    async upgradeObject(param, objectChange) {
+    async updateObject(param, objectChange) {
         try {
             this.dbConnection()
             await this.modelo.updateOne(param, { $set: objectChange })
             return "modificado con éxito"
         } catch (error) {
-            winstonLogger.error(error, "persistencia mongoDb upgradeObject")
+            winstonLogger.error(error.message, "persistencia mongoDb updateObject")
         }
     }
     async deleteObject(param) {

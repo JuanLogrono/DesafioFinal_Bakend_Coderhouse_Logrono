@@ -12,9 +12,9 @@ export default class CarritoService {
         try {
             const cartVerify = await this.service.readCartById(userName)
             const productoComplete = await new ProductsDaoMongo().readProducts(product.id)
-            const { nombre, precio, id } = productoComplete[0]
+            const { nombre, precio, id, stock } = productoComplete[0]
             const cantidad = Number(product.cantidad)
-            const producto = { id, nombre, precio, cantidad }
+            const producto = { id, nombre, precio, cantidad, stock }
 
             if (!cartVerify) {
                 const userData = await new UserDaoMongo().readUser(userName)
@@ -40,7 +40,7 @@ export default class CarritoService {
         try {
             const cart = await this.service.readCartById(username)
             if (!cart) return null
-  
+
             for (let i = 0; i < cart.items.length; i++) {
                 let sub = cart.items[i].cantidad * cart.items[i].precio;
                 cart.items[i] = { ...cart.items[i], sub }
@@ -48,6 +48,18 @@ export default class CarritoService {
             return cart
         } catch (error) {
             console.log(error, "readCartById service")
+        }
+    }
+
+    async sendChanges(username, body) {
+        try {
+            if (body.direccion) return await this.service.updateCart(username, body)
+            if (body.cantidad > 0){
+                const producto = await new ProductsDaoMongo().readProducts(body.id)
+                if (producto[0].stock< body.cantidad) return "la cantidad exede al stock disponible" 
+            await  this.service.modifyProductQuantity(username,producto[0].id,body.cantidad)}
+        } catch (error) {
+            console.log(error, "sendChanges serviceCarrito")
         }
     }
 }

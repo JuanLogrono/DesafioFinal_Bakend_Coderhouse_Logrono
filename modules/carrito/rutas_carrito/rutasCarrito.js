@@ -9,3 +9,8 @@ routerCarrito.use(authJWT)
 routerCarrito.post("/:idProduct",CarritoRouter.addProductsOrCreateCart)
 
 routerCarrito.get("/",CarritoRouter.readCartById)
+
+routerCarrito.get("/modificar/:username",CarritoRouter.cartModify)
+
+routerCarrito.put("/modificar/:username",CarritoRouter.sendChanges)
+

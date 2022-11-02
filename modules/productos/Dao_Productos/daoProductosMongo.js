@@ -17,7 +17,7 @@ export default class ProductsDaoMongo {
             const productos=productosMongo.map(p=>new DtoProductos(p))
             return productos
         } catch (error) {
-            //winstonLogger.error(error.message, "ReadProducts Dao")
+            winstonLogger.error(error.message, "ReadProducts Dao")
         }
     }
     async readByCategory(category){
@@ -46,12 +46,12 @@ export default class ProductsDaoMongo {
             winstonLogger.error(error.message, "deleteProducts Dao")
         }
     }
-    async upgradeProduct(id, bodyToChange){
+    async updateProduct(id, bodyToChange){
         try {
-            await this.dao.upgradeObject({_id:id},bodyToChange)
+            await this.dao.updateObject({_id:id},bodyToChange)
             return "producto modificado con éxito"
         } catch (error) {
-            winstonLogger.error(error.message,"upgradeProduct dao")
+            winstonLogger.error(error.message,"updateProduct dao")
         }
 
     }

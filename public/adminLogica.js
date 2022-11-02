@@ -17,6 +17,7 @@ function modificarProducto() {
     }
     )
     return false
+    
 }
 
 
@@ -29,5 +30,5 @@ function buttonDelete(event) {
             "Content-Type": "application/json"
         }
     }
-    )
+    ).then((res)=> res.redirected(true))
 }

@@ -37,4 +37,24 @@ export default class CarritoController {
             console.log(error, "readCartById controller")
         }
     }
+    async cartModify(req,res){
+       const username= req.params.username
+        try {
+            const cart = await controllerCart.readCartById(username)
+            res.render('modificarCarrito',{cart})
+        } catch (error) {
+            console.log(error,"cartModify cartController")
+        }
+    }
+
+    async sendChanges(req,res){
+        const username= req.params.username
+        const body = req.body
+        try {
+            await controllerCart.sendChanges(username,body)
+            res.sendStatus(201)
+        } catch (error) {
+            console.log(error,"sendChanges controllerCart")
+        }
+    }
 }

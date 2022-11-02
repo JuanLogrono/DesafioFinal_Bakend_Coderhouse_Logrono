@@ -42,14 +42,14 @@ export default class ProductsService {
             winstonLogger.error(error.message, "deleteProduct service")
         }    
     }
-    async upgradeProduct(id,bodyToChange){
+    async updateProduct(id,bodyToChange){
         try {
             const valid = await this.service.readProducts(id)
             if (!valid) return "producto inexistente"
-            await this.service.upgradeProduct(id,bodyToChange)
+            await this.service.updateProduct(id,bodyToChange)
             return 
         } catch (error) {
-            winstonLogger.error(error.message,"upgradeProduct service")
+            winstonLogger.error(error.message,"updateProduct service")
         }
     }
 }
