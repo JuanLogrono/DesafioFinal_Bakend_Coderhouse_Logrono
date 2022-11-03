@@ -21,8 +21,7 @@ export default class UserController {
     }
 
     errorView(req, res) {
-        const mensajeDeError = "error"
-        res.render("error", { mensajeDeError })
+        res.render("error", { error:"credenciales invalidas", mensaje: "el usuario o la contraseña no son correctos intente nuevamente" })
     }
     //ingreso y registro
     async loginIngreso (req, res) {
@@ -50,8 +49,8 @@ export default class UserController {
     passwordControl(req, res, next) {
         const { password, controlPass, username } = req.body
         if (username && password === controlPass) next()
-        if (!username) res.redirect("/api/login", { mensaje: "ingrese email de usuario" })
-        if (password !== controlPass) res.redirect("/api/login", { mensaje: "las contraseñas no coinciden" })
+        if (!username) res.render("error", { error: "falta email",mensaje: "ingrese email de usuario" })
+        if (password !== controlPass) res.render("error", { error: "error en el password", mensaje: "las contraseñas no coinciden" })
     }
 
     exitSession(req, res) {
