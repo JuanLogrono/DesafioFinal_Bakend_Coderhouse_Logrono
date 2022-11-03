@@ -8,7 +8,7 @@ export const routerLogin = Router()
 
 routerLogin.get('/', userRoutesLogin.loginView)
 
-routerLogin.post('/',passport.authenticate("auth",{session:false, failureRedirect:"api/login/error"}), userRoutesLogin.loginIngreso)
+routerLogin.post('/',passport.authenticate("auth",{session:false, failureRedirect:"/api/login/error"}), userRoutesLogin.loginIngreso)
 
 routerLogin.get("/error",userRoutesLogin.errorView)
 
