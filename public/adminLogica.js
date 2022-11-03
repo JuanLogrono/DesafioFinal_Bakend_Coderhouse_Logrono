@@ -15,20 +15,19 @@ function modificarProducto() {
         },
         body: JSON.stringify(cleanData)
     }
-    )
-    return false
+    ).then(()=>window.location.assign('/api/admin/productos'))
     
+    return false
 }
 
 
 function buttonDelete(event) {
     const id = event.target.value
-
     fetch(`/api/admin/productos/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         }
     }
-    ).then((res)=> res.redirected(true))
+    ).then((res) => res.redirected(true))
 }

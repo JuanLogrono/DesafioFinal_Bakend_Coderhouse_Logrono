@@ -62,4 +62,22 @@ export default class CarritoService {
             console.log(error, "sendChanges serviceCarrito")
         }
     }
+    async deleteProductInCart(userName,idProductCart){
+        try {
+            const {id}=idProductCart
+            const cartVerify = await this.service.readCartById(userName)
+            const product = cartVerify.items.filter((prod) => prod.id.valueOf() === id)
+            return await this.service.deleteProductInCart(userName, product[0].id)
+        } catch (error) {
+            console.log(error,"deleteProductInCart serviceCarrito")
+        }
+    }
+
+    async deleteCart(username){
+        try {
+          return await this.service.deleteCart(username)           
+        } catch (error) {
+            console.log(error,"deleteCart serviceCart")
+        }
+    }
 }

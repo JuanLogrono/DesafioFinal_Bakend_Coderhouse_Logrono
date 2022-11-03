@@ -14,10 +14,10 @@
  <p>cantidad:{{this.cantidad}}</p>
  <input type="number" name="cantidad" id="modificar_cantidad" placeholder="modificar cantidad">
 <button  onclick="modificarCantidad(event)" name="{{cart.username}}" value="{{this.id}}">modificar cantidad</button>
-<button onclick="eliminarProductoCarrito()" value="{{this.id}}">eliminar producto</button>
+<button onclick="eliminarProductoCarrito(event)" value="{{this.id}}">eliminar producto</button>
 </li>
 {{/each}}
 </ul>
-<button onclick="eliminarCarrito" value="{{cart.username}}">eliminar carrito</button>
+<button onclick="eliminarCarrito(event)" value="{{cart.username}}">eliminar carrito</button>
 <a href="/api/carrito">volver</a>
 </form>

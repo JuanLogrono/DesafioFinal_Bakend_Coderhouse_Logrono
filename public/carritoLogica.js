@@ -9,8 +9,7 @@ function modificarDireccion(event) {
         },
         body: JSON.stringify(direccion)
     }
-    )
-    window.location.reload(true)
+    ).then(()=>window.location.assign('/api/carrito'))
 }
 
 
@@ -26,7 +25,29 @@ function modificarCantidad(event) {
         },
         body: JSON.stringify(items)
     }
-    )
-    window.location.reload(true)
+    ).then(()=>window.location.assign('/api/carrito'))    
+}
+
+function eliminarCarrito(event){
+    const username=event.target.value
+
+    fetch(`/api/carrito/${username}`,{
+        method: "DELETE"
+    }
+    ).then(()=>window.location.assign('/api/productos'))    
+}
+
+function eliminarProductoCarrito(event){
+    const id = event.target.value
+    const url= event.target.formAction
+ 
+    fetch(`${url}/eliminado`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({id:id})
+    }
+    ).then(()=>window.location.assign('/api/carrito'))    
 }
 

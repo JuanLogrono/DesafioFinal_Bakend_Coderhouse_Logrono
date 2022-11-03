@@ -64,6 +64,19 @@ class PersistenciaMongoDb {
             console.log(error, "addInArray persistencia")
         }
     }
+/**
+ * 
+ * @param {parametroFiltro} param 
+ * @param {{items.$.id:idDelObjeto}} object 
+ */
+    async deleteInArray(param, object){
+        try {
+            this.dbConnection()
+            await this.modelo.updateOne(param, { $pull: object })
+        } catch (error) {
+            winstonLogger.error(error.message)
+        }
+    }
 }
 
 export default PersistenciaMongoDb

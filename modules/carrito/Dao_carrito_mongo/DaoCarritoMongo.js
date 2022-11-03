@@ -24,7 +24,7 @@ export default class CarritoDaoMongo {
             await this.dao.addInArray({ username }, { items: { $each: [product] } })
             return "producto agregado con éxito"
         } catch (error) {
-            console.log(error, "addProductTocart dao")
+            console.log(error, "addProductToCart dao")
         }
     }
 
@@ -66,6 +66,14 @@ export default class CarritoDaoMongo {
             await this.dao.deleteObject({username})
         } catch (error) {
             console.log(error,"deleteCart daoCarrito")
+        }
+    }
+    async deleteProductInCart(username,id){
+        try {
+            await this.dao.deleteInArray({ username},{"items": {id}})
+            return "eliminado con éxito"
+        } catch (error) {
+            console.log(error,"deleteProductInCart dao")
         }
     }
 }

@@ -14,3 +14,6 @@ routerCarrito.get("/modificar/:username",CarritoRouter.cartModify)
 
 routerCarrito.put("/modificar/:username",CarritoRouter.sendChanges)
 
+routerCarrito.put("/modificar/:username/eliminado",CarritoRouter.deleteProductInCart)
+
+routerCarrito.delete("/:username",CarritoRouter.deleteCart)

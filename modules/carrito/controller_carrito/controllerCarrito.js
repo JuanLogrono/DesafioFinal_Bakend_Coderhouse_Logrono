@@ -26,35 +26,56 @@ export default class CarritoController {
         const tokenData = extraerUsername(token)
         try {
             let hayCarrito = false
-            let total=0
+            let total = 0
             const cart = await controllerCart.readCartById(tokenData.sub)
             if (cart) {
                 hayCarrito = true
                 total = calcularPrecioTotal(cart.items)
             }
-                res.render('carrito', { cart, total,hayCarrito })
+            res.render('carrito', { cart, total, hayCarrito })
         } catch (error) {
             console.log(error, "readCartById controller")
         }
     }
-    async cartModify(req,res){
-       const username= req.params.username
+    async cartModify(req, res) {
+        const username = req.params.username
         try {
             const cart = await controllerCart.readCartById(username)
-            res.render('modificarCarrito',{cart})
+            res.render('modificarCarrito', { cart })
         } catch (error) {
-            console.log(error,"cartModify cartController")
+            console.log(error, "cartModify cartController")
         }
     }
 
-    async sendChanges(req,res){
-        const username= req.params.username
+    async sendChanges(req, res) {
+        const username = req.params.username
         const body = req.body
         try {
-            await controllerCart.sendChanges(username,body)
+            await controllerCart.sendChanges(username, body)
             res.sendStatus(201)
         } catch (error) {
-            console.log(error,"sendChanges controllerCart")
+            console.log(error, "sendChanges controllerCart")
         }
+    }
+    async deleteProductInCart(req, res){
+        const username= req.params.username
+        const id = req.body
+        try {
+            await controllerCart.deleteProductInCart(username,id)
+            res.sendStatus(201)
+        } catch (error) {
+            console.log(error,"deleteProductInCart controllerCarrito")
+        }
+    }
+
+    async deleteCart(req,res){
+        const username=req.params.username
+        try {
+            await controllerCart.deleteCart(username)
+            res.sendStatus(201)
+        } catch (error) {
+            console.log(error,"deleteCart controllerCart")
+        }
+
     }
 }

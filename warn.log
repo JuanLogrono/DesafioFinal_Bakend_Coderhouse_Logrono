@@ -1,0 +1,22 @@
+{"level":"warn","message":"ruta /api/adimin/productos, método GET no implementada"}
+{"level":"warn","message":"ruta /api/carrito/modificar/user@mail/producto, método PUT no implementada"}
+{"level":"warn","message":"ruta /api/carrito/modificar/user@mail/producto, método PUT no implementada"}
+{"level":"warn","message":"ruta /api/carrito/modificar/user@mail/eliminar, método PUT no implementada"}
+{"level":"error","message":"objWithArray is not defined"}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"The positional operator did not find the match needed from the query."}
+{"level":"error","message":"Cannot use the part (_id) of (items._id) to traverse the element ({items: [ { id: ObjectId('6355d98908423ce615f106bd'), nombre: \"Remera blanca\", precio: 960, cantidad: \"4\" }, { id: ObjectId('6355d98908423ce615f106b3'), nombre: \"Buzo azul\", precio: 3150, cantidad: 1, stock: 15 } ]})"}
+{"level":"error","message":"Cannot use the part (id) of (items.id) to traverse the element ({items: [ { id: ObjectId('6355d98908423ce615f106bd'), nombre: \"Remera blanca\", precio: 960, cantidad: \"4\" }, { id: ObjectId('6355d98908423ce615f106b3'), nombre: \"Buzo azul\", precio: 3150, cantidad: 1, stock: 15 } ]})"}
