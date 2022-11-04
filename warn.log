@@ -22,3 +22,35 @@
 {"level":"error","message":"Cannot use the part (id) of (items.id) to traverse the element ({items: [ { id: ObjectId('6355d98908423ce615f106bd'), nombre: \"Remera blanca\", precio: 960, cantidad: \"4\" }, { id: ObjectId('6355d98908423ce615f106b3'), nombre: \"Buzo azul\", precio: 3150, cantidad: 1, stock: 15 } ]})"}
 {"level":"error","message":"Invalid status code: { mensaje: 'ingrese email de usuario' }"}
 {"level":"error","message":"Failed to lookup view \"/api/login\" in views directory \"./public/views\""}
+{"level":"error","message":"The partial nav could not be found"}
+{"level":"error","message":"The partial nav could not be found"}
+{"level":"error","message":"The partial nav could not be found"}
+{"level":"error","message":"The partial nav could not be found"}
+{"level":"error","message":"Cast to ObjectId failed for value \"hombre\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cast to ObjectId failed for value \"hombre\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cast to ObjectId failed for value \"gb\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cast to ObjectId failed for value \"123\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cast to ObjectId failed for value \"123\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cast to ObjectId failed for value \"asd\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cast to ObjectId failed for value \"asd\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'length')"}
+{"level":"error","message":"Cast to ObjectId failed for value \"asd\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cast to ObjectId failed for value \"asd\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cast to ObjectId failed for value \"1234\" (type string) at path \"_id\" for model \"producto\""}
+{"level":"error","message":"Cast to ObjectId failed for value \"123456\" (type string) at path \"_id\" for model \"producto\""}

@@ -11,4 +11,4 @@ routerProductos.use(authJWT)
 
 routerProductos.get("/:id?",ProductRouter.readProducts)
 
-routerProductos.get("/:categoria?",ProductRouter.readByCategory)
+routerProductos.get("/filtro/:categoria?",ProductRouter.readByCategory)

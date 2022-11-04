@@ -5,19 +5,60 @@ body{
 }
 
 input{
-    margin: 2rem;
+    margin: 2rem 1rem;
 }
-.links_nav{
+
+nav {
+    order: 5;
     display: flex;
-    justify-content: space-around;
-}
+    flex-direction: row;
+    align-items: flex-end;
+    flex-basis: auto;
+  }
+  nav ul {
+    display: flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    list-style: none;
+  }
+  nav ul li {
+    margin: 0 10px;
+    border: solid white 1px;
+    padding: 5px;
+    border-radius: 10%;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  ul.submenu{
+      display: none;
+      position: absolute;
+      margin-top: 6.5px;
+      margin-left: -12px;
+      padding: 4px 2px;
+  
+  }
+  .submenu li{
+    display: flex;
+    flex-direction: column;
+    background-color: #276390;
+    margin: 2px 4px;
+  
+  }
+  nav ul li:hover .submenu{
+    display:flex;
+    flex-direction: column;
+    background-color: darkgray;
+  }
 
 a {
     text-decoration: none;
     border: solid black 1px;
     padding: 1px 2px;
     color: black;
-    background-color: rgb(248, 244, 244);
+    background-color:darkgray;
 }
 
 .ulProducts{

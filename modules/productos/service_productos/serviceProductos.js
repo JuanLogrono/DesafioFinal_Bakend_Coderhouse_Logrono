@@ -10,8 +10,8 @@ export default class ProductsService {
     async readProducts(id) {
         try {
             const productos = await this.service.readProducts(id)
-
-            return (productos.length>1) ? productos : productos[0]
+            if (!productos) return []
+            return (productos.length > 1) ? productos : productos[0]
         } catch (error) {
             winstonLogger.error(error.message, "readProducts service")
         }
@@ -40,16 +40,16 @@ export default class ProductsService {
             return "Producto eliminado con éxito"
         } catch (error) {
             winstonLogger.error(error.message, "deleteProduct service")
-        }    
+        }
     }
-    async updateProduct(id,bodyToChange){
+    async updateProduct(id, bodyToChange) {
         try {
             const valid = await this.service.readProducts(id)
             if (!valid) return "producto inexistente"
-            await this.service.updateProduct(id,bodyToChange)
-            return 
+            await this.service.updateProduct(id, bodyToChange)
+            return
         } catch (error) {
-            winstonLogger.error(error.message,"updateProduct service")
+            winstonLogger.error(error.message, "updateProduct service")
         }
     }
 }
